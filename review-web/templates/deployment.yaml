@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  generation: 1
+  labels:
+    app: {{ .Values.env }}-tbox-web
+  name: {{ .Values.env }}-tbox-web
+  namespace: {{ .Values.env }}-tbox-web
+spec:
+  progressDeadlineSeconds: {{ .Values.progressDeadlineSeconds }}
+  replicas: {{ .Values.api.replicas }}
+  revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
+  selector:
+    matchLabels:
+      app: {{ .Values.env }}-tbox-web
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: {{ .Values.env }}-tbox-web
+    spec:
+      containers:
+      - image: {{ .Values.api.dockerImage }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        name: {{ .Values.env }}-tbox-web
+        ports:
+        - containerPort: {{ .Values.api.port }}
+          protocol: {{ .Values.api.protocol }}
+        resources: {}
+        terminationMessagePath: {{ .Values.terminationMessagePath }}
+        terminationMessagePolicy: {{ .Values.terminationMessagePolicy }}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

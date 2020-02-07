@@ -1,0 +1,27 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01ESXdOekE0TURZeU9Wb1hEVE13TURJd05EQTRNRFl5T1Zvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBS0tJCjkwb1ExUHN0UkVWSEVYd3dkMGMyOHNTZW1jaEZkeEZoRW5nSHJZUEJXWkpmc290bEJVU28ySGVHbWt4YWIzRzMKOUhiaEg3dk53bDg0dm5xRE0wQkFVODlRRjRpVGUyRUZuWERxYUFFZU9pY3YyK3owL2RWNmtZTmlrWXB3aFBZYgp2clZ4UFZCTHIzQ0J1ZDFTMS9FdHAzcGxLL0QzZEdmSDdTd1JoaUJqZi9ib3B3Y0tFd0ZrYytrb2Q4clQwdk5QCkhjVGRDcXE5aVBta3gybkpkQ0c1VlZnNU5COVpTSURNOXdnemR5SGRRQVJoaDRPTHp3TmM0QzN5ekpsOCtFRWsKUnlCZSs0a0VSUDJ6c2JHUGxFY0dVOEZrclJtYnlGVjhWYXF6SUJLcWRNSURtRWZCbkJHMHpndjRqeVVzWTBLTwpQQXMwN2tTNXF3RjMzc0FxeVBzQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFCOFBjc0FObDVuQkN6Z0dIeWxaZHV5UlcyRmEKbXJSa00zWEVBaFgxRkRUblhGUytjb0lSeVdwbFFiNjc2SkY4bVdOZWk5ZktOOTVmcW4wN2VUc0JPMmVnaGlMZgpqTCtzbWt1OUdxYmVIVlRNQ2FBZDNCdW1ZVUZXMUdFSEFaYWZCSCtrVkNmbFdnS0RWcTZjMkdycENPdkEvcmMxCnBnSTNHaWp6SlNacUc2OGo5VFFlNEJuT2VVd1JtVThQNlA2M0FqelgxWUxoNW5XS1RJeGpIYnFPaUhNd2tHbzMKcjNwbXJhb25LdUpHTVRmYnkwZlY2NFRnamd6RTVNbnJpWmJIUitrbXc4M2lZVnN6UFFDOW9oUzcyTzNFYmQ3YQpmamwwdDlxYmtHMi9mT2ROcndNV21YRHNvTjYyV1praDliRmtnSVgyWEJRSWJSaFY5bkl4VEpGQ052MD0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://51C53CC48C972B247DBD33A937559390.gr7.ap-southeast-1.eks.amazonaws.com
+  name: arn:aws:eks:ap-southeast-1:264412621605:cluster/EKS-Test-Infras
+contexts:
+- context:
+    cluster: arn:aws:eks:ap-southeast-1:264412621605:cluster/EKS-Test-Infras
+    user: arn:aws:eks:ap-southeast-1:264412621605:cluster/EKS-Test-Infras
+  name: arn:aws:eks:ap-southeast-1:264412621605:cluster/EKS-Test-Infras
+current-context: arn:aws:eks:ap-southeast-1:264412621605:cluster/EKS-Test-Infras
+kind: Config
+preferences: {}
+users:
+- name: arn:aws:eks:ap-southeast-1:264412621605:cluster/EKS-Test-Infras
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - ap-southeast-1
+      - eks
+      - get-token
+      - --cluster-name
+      - EKS-Test-Infras
+      command: aws

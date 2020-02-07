@@ -1,0 +1,14 @@
+env: "staging"
+progressDeadlineSeconds: 300
+revisionHistoryLimit: 1
+imagePullPolicy: "Always"
+terminationMessagePath: "/dev/termination-log"
+terminationMessagePolicy: "File"
+app: "tbox-web"
+domain: "k8s.ticketbox.dev"
+
+api:
+  replicas: 3
+  port: 80
+  protocol: "TCP"
+  dockerImage: "nginx"

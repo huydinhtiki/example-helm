@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Values.env }}-tbox-web
+  name: {{ .Values.env }}-tbox-web
+  namespace: {{ .Values.env }}-tbox-web
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - port: {{ .Values.api.port }}
+    protocol: {{ .Values.api.protocol }}
+    targetPort: {{ .Values.api.port }}
+  selector:
+    app: {{ .Values.env }}-tbox-web
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
