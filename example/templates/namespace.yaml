@@ -1,0 +1,8 @@
+- apiVersion: v1
+  kind: Namespace
+  metadata:
+    name: staging-tbox-web
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
