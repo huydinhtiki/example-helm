@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   generation: 1
   labels:
-    app: {{ .Values.env }}-tbox-web
-  name: {{ .Values.env }}-tbox-web
-  namespace: {{ .Values.env }}-tbox-web
+    app: {{ .Values.env }}-{{ .Values.app }}
+  name: {{ .Values.env }}-{{ .Values.app }}
+  namespace: {{ .Values.env }}-{{ .Values.app }}
 spec:
   progressDeadlineSeconds: {{ .Values.progressDeadlineSeconds }}
   replicas: {{ .Values.api.replicas }}
   revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
   selector:
     matchLabels:
-      app: {{ .Values.env }}-tbox-web
+      app: {{ .Values.env }}-{{ .Values.app }}
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -22,12 +22,12 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: {{ .Values.env }}-tbox-web
+        app: {{ .Values.env }}-{{ .Values.app }}
     spec:
       containers:
       - image: {{ .Values.api.dockerImage }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
-        name: {{ .Values.env }}-tbox-web
+        name: {{ .Values.env }}-{{ .Values.app }}
         ports:
         - containerPort: {{ .Values.api.port }}
           protocol: {{ .Values.api.protocol }}
