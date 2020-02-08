@@ -1,3 +1,4 @@
 set -e
 
-helm install development-tbox-movie-landing . --namespace=development-tbox-movie-landing
+kubectl apply -f namespace.yaml
+helm install development-tbox-movie-landing .
