@@ -1,3 +1,3 @@
 set -e
 
-helm upgrade staging-tbox-web .
+helm upgrade development-tbox-movie-landing .

@@ -1,10 +1,10 @@
-env: "staging"
+env: "development"
 progressDeadlineSeconds: 300
 revisionHistoryLimit: 1
 imagePullPolicy: "Always"
 terminationMessagePath: "/dev/termination-log"
 terminationMessagePolicy: "File"
-app: "tbox-web"
+app: "tbox-movie-landing"
 domain: "k8s.ticketbox.dev"
 
 api:

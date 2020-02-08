@@ -1,3 +1,3 @@
 set -e
 
-helm install staging-tbox-web .
+helm install development-tbox-movie-landing . --namespace=development-tbox-movie-landing
