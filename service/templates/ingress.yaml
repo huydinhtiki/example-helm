@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ .Values.env }}-{{ .Values.app }}
+  namespace: {{ .Values.env }}-{{ .Values.app }}
 spec:
   rules:
   - host: {{ .Values.domain }}
